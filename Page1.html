@@ -1,0 +1,125 @@
+<!Doctype html>
+<html>
+	<head>
+	</head>
+
+	<body>
+		<p id="result"></p>
+
+		<script>
+			/*
+				Why do we need algorithms:
+					1) To know / estimate execution time
+	 				2) To decide on computer hardware and decide if we should use multiple processors to share execution of tasks
+					3) To know what's feasible and what's not.
+					4) To keep improving on the basic algorithm that simply works
+
+				Analysis of Algorithms:
+					1) Space coplexity & Time complexity
+					2) How to measure time (Growth of time / Order of time): Linear growth of time v/s Quadratic growth of type. Computing order of time for large data sets is also known as "Asymptotic analysis".
+					3) 3 types of analysys when dealing with time complexity of algorithms.
+						. Best case; Worst case; and Average case analysis.
+						. RAM computational model
+						. Comparison and Swap steps
+					4) Big O notation
+						. Understanding the Math of computing time complexity
+
+				Comparing Bubble, Selection and Insertion sorts:
+					- Efficiency in the order of their mention; slowest to fastest.
+
+				Stable sorting v/s Unstable sorting.
+					If an index with same value appears in the array, the order of the value is retained in stable sorting. Below is an example of stable sorting.
+					[1, 2, 5, 2'] sorted as [1, 2, 2', 5]
+
+				Implementing searching on a ordered / sorted array.
+
+				Inserting and deleting an item in an ordered / sorted array
+
+				Concept of "Generics" in programming langauage: Using them, the Sort routine can be re-used for different types of data. (String, Int, etc..)
+
+				Linked List data structure:
+					- Implementation
+					- Inserting and deleting nodes in a linked List
+					- Finding the length
+					- Deleting the head nodes
+					- Searching for an item (Node)
+					- Doubly ended linked lists
+					- Inserting data in a sorted linked list
+					- Doubly linked list
+					- Insertion sort revisted with linked lists
+			*/
+
+			(function() {
+				var values = [20, 18, 14, 10, 15, 5, 3, 2, 1];
+
+				/*
+				// Bubble Sort
+				// In each iteration, compare values in adjacent indices and move the higher value to the right. At the end of each iteration, highest values bubbles to the right.
+				// From next iteration, we only need to compare array length - 1 indices since last index is already sorted.
+
+				var tempVariable = 0;
+				var lengthOfArrayToTraverse = values.length;
+				while(lengthOfArrayToTraverse >= 2) {
+					for(i = 1; i < lengthOfArrayToTraverse; i++) {
+						if(values[i] < values[i - 1]) {
+							tempVariable = values[i - 1];
+							values[i - 1] = values[i];
+							values[i] = tempVariable;
+						}
+					}
+					lengthOfArrayToTraverse--;
+				}
+				*/
+
+				/*
+				// Selection Sort
+				// In each iteration, we find the smallest value and swap places with current index.
+				// From next iteration, we start one place to the right, since first index is already sorted. In essence, we are selecting the smallest value in each iteration.
+
+				var tempVariable = 0;
+				var indexOfSmallestValue = 0;
+				for(j = 0; j < values.length; j++) {
+					for(i = j + 1; i < values.length; i++) {
+						if(values[i] < values[indexOfSmallestValue]) {
+							indexOfSmallestValue = i;
+						}
+					}
+
+					if(indexOfSmallestValue > j) {
+						tempVariable = values[j];
+						values[j] = values[indexOfSmallestValue];
+						values[indexOfSmallestValue] = tempVariable;
+					}
+				}
+				*/
+
+				/*
+				// Insertion Sort
+				// In each iteration, we are checking the current index's value against the previous indices that are already sorted.
+				// If value is less than any index's value, we swap and continue to swap until either end of array is reached, or the prev index's value is greater than current comparison values
+				// This would imply that values are already sorted and we can move on to the next index from our initial iteration.
+
+				var sortedArrayIndex = 0;
+				var tempVariable = 0;
+				var tempIndex = 0;
+				for(i = 1; i < values.length; i++) {
+					tempIndex = i;
+					for(j = (i - 1); j >= 0; j--) {
+						if(values[tempIndex] < values[j]) {
+							tempVariable = values[j];
+							values[j] = values[tempIndex];
+							values[tempIndex] = tempVariable;
+
+							tempIndex--;
+						} else {
+							break;
+						}
+					}
+				}
+				*/
+
+				document.getElementById("result").innerHTML = values.join(", ");
+			})();
+		</script>
+	</body>
+</html>
